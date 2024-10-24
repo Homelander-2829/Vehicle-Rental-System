@@ -1,0 +1,60 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+/* styles.css */
+
+/* Container for navigation links */
+.nav-links {
+    margin: 20px 0; /* Space above and below the links */
+}
+
+/* Style for navigation buttons */
+.nav-button {
+    display: inline-block; /* Allows for padding and margin */
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding for the button */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    margin-right: 10px; /* Space between buttons */
+}
+
+/* Hover effect for navigation buttons */
+.nav-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

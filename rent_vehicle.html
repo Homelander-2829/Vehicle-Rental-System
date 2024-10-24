@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Vehicle</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #d1d5db);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #4b5563;
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            margin-bottom: 8px;
+            display: block;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        select,
+        input[type="date"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        select:focus,
+        input[type="date"]:focus {
+            border-color: #3b82f6; /* Blue color on focus */
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+        }
+
+        input[type="submit"] {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+            transform: scale(1.05);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rent Vehicle</h1>
+    <form method="POST">
+        <label for="vehicle_id">Select Vehicle:</label>
+        <select name="vehicle_id" required>
+            {% for vehicle in vehicles %}
+                <option value="{{ vehicle.id }}">{{ vehicle.make }} {{ vehicle.model }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="rental_date">Rental Date:</label>
+        <input type="date" name="rental_date" required>
+        <br>
+        <label for="return_date">Return Date:</label>
+        <input type="date" name="return_date" required>
+        <br>
+        <input type="submit" value="Rent Vehicle">
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>

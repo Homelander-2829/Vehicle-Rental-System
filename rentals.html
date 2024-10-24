@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentals</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            background-image: url('https://images.unsplash.com/photo-1518972560986-262d1f12d2f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0M3wwfDF8c2VhcmNofDV8fGNhcnxlbnwwfHx8fDE2OTI4MDY0OTI&ixlib=rb-1.2.1&q=80&w=1080'); /* Background image of a car */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Overlay for background blur effect */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
+            z-index: 1;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        table {
+            background: rgba(255, 255, 255, 0.9); /* Light background for the table */
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 2;
+            position: relative;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4b5563; /* Darker header */
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Row hover effect */
+            color: #333;
+        }
+
+        a {
+            color: #4b5563;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <h1>Rental History</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Vehicle ID</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+        </tr>
+        {% for rental in rentals %}
+        <tr>
+            <td>{{ rental.id }}</td>
+            <td>{{ rental.vehicle_id }}</td>
+            <td>{{ rental.rental_date }}</td>
+            <td>{{ rental.return_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
